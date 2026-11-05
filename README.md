@@ -1,6 +1,6 @@
 # 🎓 TP : Personnalisation de l'Authentification Spring Security & Thymeleaf
 
-Projet réalisé dans le cadre du module Sécurité Informatique / Architectures Logicielles (**FSTG - Faculté des Sciences et Techniques de Marrakech**).
+Projet réalisé dans le cadre du module Sécurité Informatique / Architectures Logicielles ).
 
 ---
 
