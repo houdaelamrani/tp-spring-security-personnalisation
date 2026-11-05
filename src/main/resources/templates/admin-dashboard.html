@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Administration FSTG</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f1f5f9; margin: 0; }
+        nav { background: #0f172a; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .badge-admin { background: #dc2626; color: white; padding: 4px 10px; border-radius: 12px; font-size: 12px; }
+        .container { max-width: 900px; margin: 40px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .btn-logout { background: #ef4444; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .table th, .table td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
+        .table th { background: #f8fafc; }
+    </style>
+</head>
+<body>
+<nav>
+    <h2>Panneau de Contrôle - Décanat / Scolarité</h2>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <span>Admin : <strong sec:authentication="name">Admin</strong></span>
+        <span class="badge-admin">ADMINISTRATEUR</span>
+        <form th:action="@{/logout}" method="post" style="margin:0;">
+            <button type="submit" class="btn-logout">Déconnexion</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <h3>Gestion des Inscriptions et Accréditations</h3>
+    <p>Cette page est strictement protégée par la règle <code>hasRole('ADMIN')</code>.</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th>Accès</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Gestion des étudiants</td>
+                <td>Restreint ADMIN</td>
+                <td><button>Gérer</button></td>
+            </tr>
+            <tr>
+                <td>Validation des délibérations</td>
+                <td>Restreint ADMIN</td>
+                <td><button>Valider</button></td>
+            </tr>
+            <tr>
+                <td>Voir l'Espace Étudiant</td>
+                <td>Autorisé (ADMIN possède l'accès)</td>
+                <td><a th:href="@{/user/dashboard}">Aller vers /user/dashboard</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
